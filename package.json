@@ -1,17 +1,16 @@
 {
-  "name": "frontend",
+  "name": "cinema-world",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.4.0",
-    "@sentry/react": "^6.2.4",
-    "@sentry/tracing": "^6.2.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "antd": "^4.11.2",
+    "antd": "^4.20.4",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",
+    "babel-eslint": "^10.1.0",
     "nprogress": "^0.2.0",
     "polished": "^4.1.0",
     "prop-types": "^15.7.2",
@@ -22,6 +21,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "6",
     "react-scripts": "4.0.1",
+    "standard": "^17.0.0",
     "styled-components": "^5.2.1",
     "zustand": "^3.7.1"
   },

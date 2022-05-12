@@ -15,9 +15,9 @@ export default function Topbar() {
     shallow,
   );
 
-  const handleToggle = React.useCallback(() => toggleCollapsed(), [
-    toggleCollapsed,
-  ]);
+  // eslint-disable-next-line prettier/prettier
+  const handleToggle = React.useCallback(() => 
+  toggleCollapsed(), [toggleCollapsed]);
 
   const isCollapsed = collapsed && !openDrawer;
 
