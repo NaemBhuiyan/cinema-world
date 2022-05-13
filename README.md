@@ -1,13 +1,3 @@
-<h1 align="center">
-  <br>
-  <img src="https://i.imgur.com/7nkwu15.png" alt="React Dashboard Boilerplate" width="200">
-  <br>
-    React Dashboard Boilerplate
-  <br>
-</h1>
-
-<h4 align="center">A React Dashboard Boilerplate built to Scale</h4>
-
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
