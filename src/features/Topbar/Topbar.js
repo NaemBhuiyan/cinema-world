@@ -1,33 +1,16 @@
 import React from 'react';
-import { Layout, Row, Col } from 'antd';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import shallow from 'zustand/shallow';
-import { AppStore } from '@/store';
+import { Layout, Row, Col, Badge } from 'antd';
+
 import TopbarWrapper from './styles';
-import TopBarLangSwitch from './TopbarLangSwitch';
-import TopbarUser from './TopbarUser';
 
 const { Header } = Layout;
 
 export default function Topbar() {
-  const [collapsed, openDrawer, toggleCollapsed] = AppStore(
-    state => [state.collapsed, state.openDrawer, state.toggleCollapsed],
-    shallow,
-  );
-
   // eslint-disable-next-line prettier/prettier
-  const handleToggle = React.useCallback(() => 
-  toggleCollapsed(), [toggleCollapsed]);
-
-  const isCollapsed = collapsed && !openDrawer;
 
   return (
     <TopbarWrapper>
-      <Header
-        className={
-          isCollapsed ? 'header shadow-long collapsed' : 'header shadow-long'
-        }
-      >
+      <Header className="header shadow-long">
         <Row
           style={{ height: '100%' }}
           type="flex"
@@ -35,18 +18,9 @@ export default function Topbar() {
           align="middle"
         >
           <Col>
-            {isCollapsed ? (
-              <MenuUnfoldOutlined
-                style={{ fontSize: '2rem' }}
-                onClick={handleToggle}
-              />
-            ) : (
-              <MenuFoldOutlined
-                style={{ fontSize: '2rem' }}
-                onClick={handleToggle}
-              />
-            )}
+            <h4>LOGO</h4>
           </Col>
+
           <Col>
             <Row
               className="header-right"
@@ -56,10 +30,9 @@ export default function Topbar() {
               gutter={[25, 0]}
             >
               <Col>
-                <TopBarLangSwitch />
-              </Col>
-              <Col>
-                <TopbarUser />
+                <Badge count={9} offset={[10, -5]}>
+                  <a href="#">Watch List</a>
+                </Badge>
               </Col>
             </Row>
           </Col>

@@ -1,5 +1,5 @@
 export const PUBLIC_ROUTE = {
-  LANDING: '/',
+  LANDING: '/movies',
   SIGN_IN: '/signin',
   ACTIVATE: '/activate/:id/:token',
   FORGET_PASSWORD: '/forgotpassword',

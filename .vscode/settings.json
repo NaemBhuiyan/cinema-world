@@ -8,5 +8,6 @@
   },
   "[javascriptreact]": {
     "editor.formatOnSave": false
-  }
+  },
+  "i18next.i18nPaths": "/Users/md.naem/Documents/cinema-world/src/config/translation/locales"
 }
