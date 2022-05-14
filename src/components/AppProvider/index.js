@@ -3,13 +3,16 @@ import { ThemeProvider } from 'styled-components';
 import { ConfigProvider } from 'antd';
 import PropTypes from 'prop-types';
 import { theme, AppLocale } from '@/config';
+import PageLayout from '../Layout/Layout';
 
 export default function AppProvider({ children }) {
   const currentAppLocale = AppLocale['en'];
 
   return (
     <ConfigProvider locale={currentAppLocale.antd}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <PageLayout>{children}</PageLayout>
+      </ThemeProvider>
     </ConfigProvider>
   );
 }

@@ -1,20 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
 import { Spin } from 'antd';
-import { Layout } from 'antd';
-import Topbar from '@/features/Topbar';
-
-import { DashboardContainer } from './styles';
-
-const { Content, Footer } = Layout;
-// const styles = {
-//   layout: { flexDirection: 'row', overflowX: 'hidden' },
-//   content: {
-//     padding: '90px 0 0',
-//     flexShrink: '0',
-//     position: 'relative',
-//   },
-// };
 
 import { PUBLIC_ROUTE } from './appRoutes';
 
@@ -45,28 +36,21 @@ function AppRoutes() {
   ];
 
   return (
-    <DashboardContainer>
-      <Layout style={{ height: '100vh' }}>
-        <Topbar />
-        <Content>
-          <Suspense fallback={<Spin size="large" />}>
-            <Router>
-              <Routes>
-                {publicRoutes.map(route => (
-                  <Route
-                    key={route.path}
-                    path={route.path}
-                    element={<route.component />}
-                  />
-                ))}
-                <Route component={NotFound} />
-              </Routes>
-            </Router>
-          </Suspense>
-        </Content>
-        <Footer>Footer</Footer>
-      </Layout>
-    </DashboardContainer>
+    <Suspense fallback={<Spin size="large" />}>
+      <Router>
+        <Routes>
+          {publicRoutes.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<route.component />}
+            />
+          ))}
+          <Route path="" element={<Navigate to="/movies" />} />
+          <Route component={<NotFound />} />
+        </Routes>
+      </Router>
+    </Suspense>
   );
 }
 

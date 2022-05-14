@@ -30,7 +30,7 @@ export default function Topbar() {
               gutter={[25, 0]}
             >
               <Col>
-                <Badge count={9} offset={[10, -5]}>
+                <Badge count={9} offset={[7, -5]}>
                   <a href="#">Watch List</a>
                 </Badge>
               </Col>

@@ -28,6 +28,7 @@ export const DashboardContainer = styled.div`
 
   .ant-layout-footer {
     font-size: 13px;
+    background: #fff;
     @media (max-width: 767px) {
       padding: 10px 20px;
     }
