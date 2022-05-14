@@ -7,6 +7,7 @@ import { Col, Row } from 'antd';
 
 function GenreWiseMovieList({ genre }) {
   const [data, setData] = useState();
+
   const { ref, inView } = useInView({
     threshold: 0,
     triggerOnce: true,
@@ -16,7 +17,7 @@ function GenreWiseMovieList({ genre }) {
     if (inView) {
       const res = await Genre.genreWiseMovieList(genre);
       if (res.length) {
-        setData(res);
+        setData(res.slice(0, 5));
       }
     }
   }, [inView]);
@@ -24,7 +25,7 @@ function GenreWiseMovieList({ genre }) {
   if (data?.length) {
     return (
       <Row gutter={30} className="mb-5" ref={ref} key={genre.id}>
-        {data.slice(0, 5).map(movie => (
+        {data.map(movie => (
           <Col key={movie.id} span={5} className="my-3">
             <MovieCard movie={movie} isLoading={false} />
           </Col>
@@ -32,7 +33,7 @@ function GenreWiseMovieList({ genre }) {
       </Row>
     );
   }
-  return <p ref={ref}>Data not found</p>;
+  return <p ref={ref}>Loading....</p>;
 }
 
 GenreWiseMovieList.propTypes = {

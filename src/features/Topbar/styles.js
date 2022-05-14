@@ -4,6 +4,8 @@ const TopbarWrapper = styled.div`
   .header {
     background-color: #ffffff;
     z-index: 1000;
+    position: fixed;
+    width: 100%;
 
     .ant-col {
       /* display: inherit; */
