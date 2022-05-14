@@ -10,6 +10,7 @@ import { Spin } from 'antd';
 import { PUBLIC_ROUTE } from './appRoutes';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
+const GenrePage = lazy(() => import('@/pages/GenrePage/Genre'));
 const NotFound = lazy(() => import('@/pages/NotFoundPage'));
 
 // function PrivateRoute() {
@@ -32,6 +33,10 @@ function AppRoutes() {
     {
       path: PUBLIC_ROUTE.LANDING,
       component: HomePage,
+    },
+    {
+      path: PUBLIC_ROUTE.GENRE,
+      component: GenrePage,
     },
   ];
 

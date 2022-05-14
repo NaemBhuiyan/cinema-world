@@ -10,9 +10,9 @@ export const Genre = {
     const res = await http.get(genreListUrl);
     return res?.data?.genres;
   },
-  genreWiseMovieList: async (genre, page = 1) => {
+  genreWiseMovieList: async (genreId, page = 1, sortBy = '') => {
     const res = await http.get(
-      `${movieListUrl}&with_genres=${genre.id}&page=${page}`,
+      `${movieListUrl}&with_genres=${genreId}&page=${page}&sort_by=${sortBy}`,
     );
     return res?.data?.results;
   },
