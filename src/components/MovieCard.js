@@ -1,15 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import config from '@/config';
-import { Card, Col, Rate, Row } from 'antd';
+import { Button, Card, Col, Rate, Row } from 'antd';
 import notFoundImg from '../assets/image-not-found.png';
 import { useNavigate } from 'react-router-dom';
+import { PlusCircleFilled, PlusCircleOutlined } from '@ant-design/icons';
+import { AppStore } from '@/store';
 const { Meta } = Card;
 
 function MovieCard({ movieInfo, isLoading }) {
   const navigate = useNavigate();
+  const setWatchList = AppStore(state => state.setWatchList);
+  const watchList = AppStore(state => state.watchList);
+  const removeFromWatchList = AppStore(state => state.removeFromWatchList);
+
+  const isAddedToWatchList = watchList.some(item => item.id === movieInfo.id);
 
   const handleClick = () => navigate(`/movies/${movieInfo.id}`);
+  const handleAddWatchList = e => {
+    e.stopPropagation();
+
+    if (!isAddedToWatchList) {
+      setWatchList(movieInfo);
+    } else {
+      console.log(isAddedToWatchList);
+      removeFromWatchList(movieInfo);
+    }
+  };
 
   return (
     <Card
@@ -17,14 +34,12 @@ function MovieCard({ movieInfo, isLoading }) {
       onClick={handleClick}
       hoverable
       cover={
-        movieInfo?.poster_path ? (
-          <img
-            alt="example"
-            src={`${config.IMAGE_PATH}w300${movieInfo?.poster_path}`}
-          />
-        ) : (
-          <img alt="example" src={notFoundImg} />
-        )
+        <img
+          alt="example"
+          src={
+            `${config.IMAGE_PATH}w300${movieInfo?.poster_path}` ?? notFoundImg
+          }
+        />
       }
       style={{
         height: '100%',
@@ -37,6 +52,14 @@ function MovieCard({ movieInfo, isLoading }) {
         </Col>
         <Col>
           <p className="mb-0 mt-1">{movieInfo?.vote_average}/10</p>
+        </Col>
+        <Col>
+          <Button
+            onClick={handleAddWatchList}
+            icon={
+              isAddedToWatchList ? <PlusCircleFilled /> : <PlusCircleOutlined />
+            }
+          />
         </Col>
       </Row>
     </Card>

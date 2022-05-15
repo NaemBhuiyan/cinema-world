@@ -2,11 +2,14 @@ import React from 'react';
 import { Layout, Row, Col, Badge } from 'antd';
 
 import TopbarWrapper from './styles';
+import { AppStore } from '@/store';
 
 const { Header } = Layout;
 
 export default function Topbar() {
-  // eslint-disable-next-line prettier/prettier
+  const watchList = AppStore(state => state.watchList);
+
+  console.log(watchList);
 
   return (
     <TopbarWrapper>
@@ -30,7 +33,7 @@ export default function Topbar() {
               gutter={[25, 0]}
             >
               <Col>
-                <Badge count={9} offset={[7, -5]}>
+                <Badge count={watchList?.length} offset={[7, -5]}>
                   <a href="#">Watch List</a>
                 </Badge>
               </Col>
