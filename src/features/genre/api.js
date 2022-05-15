@@ -1,9 +1,8 @@
 import { apiUrl, movieListUrl } from '@/api/endpoints';
+import config from '@/config';
 import { http } from '@/services';
 
-export const genreListUrl = `${apiUrl}genre/movie/list?api_key=cd890f94a756b1518a2a17617a5b430e`;
-// export const GenreWiseMovieListUrl = `${movieListUrl}`;
-// https://api.themoviedb.org/3/discover/movie?api_key=cd890f94a756b1518a2a17617a5b430e&with_genres=28&page=1
+export const genreListUrl = `${apiUrl}genre/movie/list?api_key=${config.API_KEY}`;
 
 export const Genre = {
   getList: async () => {

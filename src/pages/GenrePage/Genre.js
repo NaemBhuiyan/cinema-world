@@ -1,6 +1,6 @@
-import GenreWiseMovieList from '@/features/HomePage/GenreWiseMovieList';
-import { Col, Row, Typography, Segmented } from 'antd';
 import React, { useState } from 'react';
+import MovieList from '@/components/MovieList';
+import { Col, Row, Typography, Segmented } from 'antd';
 import { useParams } from 'react-router-dom';
 import useURLQuery from '@/lib/hooks/useURLQuery';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
@@ -52,7 +52,7 @@ function Genre() {
             />
           </Col>
         </Row>
-        <GenreWiseMovieList genreId={id} listLength={10} sortBy={sortListBy} />
+        <MovieList genreId={id} listLength={10} sortBy={sortListBy} />
       </Col>
     </Row>
   );

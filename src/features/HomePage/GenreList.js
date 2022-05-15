@@ -2,7 +2,7 @@ import React from 'react';
 import { Genre } from '@/features/genre/api';
 // import { useReactQuery } from '@/lib/hooks';
 import { Button, Col, Divider, Row, Typography } from 'antd';
-import MovieList from './MovieList';
+import MovieList from '../../components/MovieList';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 

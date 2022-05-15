@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Genre } from '../genre/api';
+import { Genre } from '@/features/genre/api';
 import { useInView } from 'react-intersection-observer';
 import MovieCard from '@/components/MovieCard';
 import { Col, Row } from 'antd';
