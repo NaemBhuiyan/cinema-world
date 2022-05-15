@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Badge } from 'antd';
+import { Layout, Row, Col, Badge, Typography, Button } from 'antd';
 
 import TopbarWrapper from './styles';
 import { AppStore } from '@/store';
@@ -8,8 +8,6 @@ const { Header } = Layout;
 
 export default function Topbar() {
   const watchList = AppStore(state => state.watchList);
-
-  console.log(watchList);
 
   return (
     <TopbarWrapper>
@@ -21,7 +19,13 @@ export default function Topbar() {
           align="middle"
         >
           <Col>
-            <h4>LOGO</h4>
+            <Button href="/movies" type="text">
+              <h4>
+                <Typography.Text italic type="success">
+                  Cinema World
+                </Typography.Text>
+              </h4>
+            </Button>
           </Col>
 
           <Col>
@@ -33,8 +37,16 @@ export default function Topbar() {
               gutter={[25, 0]}
             >
               <Col>
-                <Badge count={watchList?.length} offset={[7, -5]}>
-                  <a href="#">Watch List</a>
+                <Badge count={watchList?.length} offset={[7, 5]} showZero>
+                  {/* <a href="#">Watch List</a> */}
+                  <Button
+                    primary
+                    type="link"
+                    href="/watch-list"
+                    className="px-0"
+                  >
+                    Watch List
+                  </Button>
                 </Badge>
               </Col>
             </Row>

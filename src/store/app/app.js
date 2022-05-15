@@ -7,14 +7,13 @@ export const AppStore = create(
       watchList: [],
       setWatchList: payload =>
         set(state => ({
-          watchList: [...state.watchList, payload],
+          watchList: [...state.watchList, payload].reverse(),
         })),
       removeFromWatchList: payload => {
         return set(state => {
           const updateData = state.watchList.filter(
             item => item.id !== payload.id,
           );
-          console.log(updateData);
           return { watchList: updateData };
         });
       },

@@ -4,7 +4,7 @@ import config from '@/config';
 import { Button, Card, Col, Rate, Row } from 'antd';
 import notFoundImg from '../assets/image-not-found.png';
 import { useNavigate } from 'react-router-dom';
-import { PlusCircleFilled, PlusCircleOutlined } from '@ant-design/icons';
+import { HeartOutlined, HeartTwoTone } from '@ant-design/icons';
 import { AppStore } from '@/store';
 const { Meta } = Card;
 
@@ -46,19 +46,24 @@ function MovieCard({ movieInfo, isLoading }) {
       }}
     >
       <Meta title={movieInfo?.title} />
-      <Row align="middle" gutter={8} className="ml-0">
-        <Col className="pl-0">
-          <Rate allowHalf count={1} defaultValue={1} />
+      <Row align="middle" justify="space-between" gutter={8} className="ml-0">
+        <Col span="auto" className="pl-0">
+          <Row>
+            <Col className="pl-0">
+              <Rate allowHalf count={1} defaultValue={1} />
+            </Col>
+            <Col>
+              <p className="mb-0 mt-1">{movieInfo?.vote_average}/10</p>
+            </Col>
+          </Row>
         </Col>
-        <Col>
-          <p className="mb-0 mt-1">{movieInfo?.vote_average}/10</p>
-        </Col>
-        <Col>
+        <Col span="auto">
           <Button
+            shape="circle"
+            size="large"
+            type={isAddedToWatchList ? 'primary' : 'default'}
             onClick={handleAddWatchList}
-            icon={
-              isAddedToWatchList ? <PlusCircleFilled /> : <PlusCircleOutlined />
-            }
+            icon={isAddedToWatchList ? <HeartTwoTone /> : <HeartOutlined />}
           />
         </Col>
       </Row>

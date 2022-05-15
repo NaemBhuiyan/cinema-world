@@ -1,13 +1,20 @@
-// import useURLQuery from '@/lib/hooks/useURLQuery';
-import MovieCard from '@/components/MovieCard';
-import { Movie } from '@/features/HomePage/api';
-import MovieCastList from '@/features/MovieDetails/MovieCastList';
-import { Tabs, Col, Divider, Row, Typography, List } from 'antd';
 import React from 'react';
+
+import { Tabs, Col, Divider, Row, Typography, List } from 'antd';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
+import MovieCard from '@/components/MovieCard';
+import { Movie } from '@/features/HomePage/api';
+import MovieCastList from '@/features/MovieDetails/MovieCastList';
+
 const { TabPane } = Tabs;
+
+const style = {
+  height: 400,
+  overflow: 'auto',
+  borderRadius: '4px',
+};
 
 function MovieDetails() {
   const { id } = useParams();
@@ -46,28 +53,22 @@ function MovieDetails() {
             <p className="mt-4">{data?.overview}</p>
 
             <Tabs defaultActiveKey="1" size="large">
-              <TabPane
-                tab="Cast"
-                key="1"
-                style={{
-                  height: 400,
-                  overflow: 'auto',
-                  // border: '1px solid rgba(140, 140, 140, 0.35)',
-                  borderRadius: '4px',
-                }}
-              >
+              <TabPane tab="Cast" key="1" style={style}>
                 <MovieCastList data={data?.credits?.cast} />
               </TabPane>
-              <TabPane
-                tab="Crew"
-                key="2"
-                style={{
-                  height: 400,
-                  overflow: 'auto',
-                  borderRadius: '4px',
-                }}
-              >
+              <TabPane tab="Crew" key="2" style={style}>
                 <MovieCastList data={data?.credits?.crew} />
+              </TabPane>
+              <TabPane tab="Trailer" key="3" style={style}>
+                {data.videos?.results[0].key ? (
+                  <iframe
+                    width="100%"
+                    height="400"
+                    src={`https://www.youtube.com/embed/${data.videos?.results[0].key}`}
+                  ></iframe>
+                ) : (
+                  'No trailer founded'
+                )}
               </TabPane>
             </Tabs>
           </Col>
