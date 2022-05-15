@@ -6,10 +6,10 @@ import notFoundImg from '../assets/image-not-found.png';
 import { useNavigate } from 'react-router-dom';
 const { Meta } = Card;
 
-function MovieCard({ movie, isLoading }) {
+function MovieCard({ movieInfo, isLoading }) {
   const navigate = useNavigate();
 
-  const handleClick = () => navigate(`/movies/${movie.id}`);
+  const handleClick = () => navigate(`/movies/${movieInfo.id}`);
 
   return (
     <Card
@@ -17,33 +17,26 @@ function MovieCard({ movie, isLoading }) {
       onClick={handleClick}
       hoverable
       cover={
-        movie?.poster_path ? (
+        movieInfo?.poster_path ? (
           <img
             alt="example"
-            src={`${config.IMAGE_PATH}w300${movie?.poster_path}`}
+            src={`${config.IMAGE_PATH}w300${movieInfo?.poster_path}`}
           />
         ) : (
-          <img
-            alt="example"
-            src={notFoundImg}
-            style={{
-              height: '100%',
-              maxHeight: 500,
-            }}
-          />
+          <img alt="example" src={notFoundImg} />
         )
       }
       style={{
         height: '100%',
       }}
     >
-      <Meta title={movie?.title} />
+      <Meta title={movieInfo?.title} />
       <Row align="middle" gutter={8} className="ml-0">
         <Col className="pl-0">
           <Rate allowHalf count={1} defaultValue={1} />
         </Col>
         <Col>
-          <p className="mb-0 mt-1">{movie?.vote_average}/10</p>
+          <p className="mb-0 mt-1">{movieInfo?.vote_average}/10</p>
         </Col>
       </Row>
     </Card>
@@ -51,7 +44,7 @@ function MovieCard({ movie, isLoading }) {
 }
 
 MovieCard.propTypes = {
-  movie: PropTypes.object,
+  movieInfo: PropTypes.object,
   isLoading: PropTypes.bool,
 };
 

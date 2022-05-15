@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Genre } from '@/features/genre/api';
 import { useInView } from 'react-intersection-observer';
 import MovieCard from '@/components/MovieCard';
-import { Col, Row } from 'antd';
+import { List } from 'antd';
 
 function MovieList({ genreId, listLength, sortBy }) {
   const [data, setData] = useState();
@@ -40,13 +40,23 @@ function MovieList({ genreId, listLength, sortBy }) {
   if (data?.length) {
     return (
       <>
-        <Row gutter={18} className="mb-5" ref={ref} key={genreId}>
-          {data.map(movie => (
-            <Col flex="auto" key={movie.id} span={6} className="my-3">
-              <MovieCard movie={movie} isLoading={false} />
-            </Col>
-          ))}
-        </Row>
+        <List
+          grid={{
+            gutter: 16,
+            xs: 1,
+            sm: 2,
+            md: 4,
+            lg: 5,
+            xl: 5,
+            xxl: 5,
+          }}
+          dataSource={data}
+          renderItem={item => (
+            <List.Item>
+              <MovieCard movieInfo={item} />
+            </List.Item>
+          )}
+        />
       </>
     );
   }
