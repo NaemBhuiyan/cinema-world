@@ -10,6 +10,7 @@ const styles = {
     // flexShrink: '0',
     // position: 'relative',
     // height: '100vh',
+    marginTop: '100px',
   },
 };
 function PageLayout({ children }) {
