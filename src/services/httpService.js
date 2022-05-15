@@ -19,14 +19,15 @@ http.interceptors.request.use(config => {
 });
 
 http.interceptors.response.use(null, error => {
-  if (error?.response?.status === 4001) {
-    const { logout } = AuthStore.getState();
-    logout();
+  if (error?.response?.status === 401 || error?.response?.status === 404) {
+    message.error(error?.response?.data?.status_message);
   }
-  if (error?.response?.message) {
-    message.error(error.response.message);
+  if (error?.response?.data?.errors) {
+    message.error(error?.response?.data?.errors[0]);
     return error;
   }
+
+  console.log(error?.response);
 
   message.error('Something went wrong!');
   return error;

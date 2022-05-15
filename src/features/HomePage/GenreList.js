@@ -10,6 +10,9 @@ function GenreList() {
   const genreList = useQuery('genreList', () => Genre.getList());
   const navigate = useNavigate();
 
+  const handleClickViewMore = genre =>
+    navigate(`/genre/${genre.id}?name=${genre.name}`);
+
   return (
     <Row justify="center">
       <Col span={23}>
@@ -33,9 +36,7 @@ function GenreList() {
                 <Button
                   size="large"
                   type="primary"
-                  onClick={() =>
-                    navigate(`/genre/${genre.id}?name=${genre.name}`)
-                  }
+                  onClick={() => handleClickViewMore(genre)}
                 >
                   View {genre.name} List
                 </Button>
