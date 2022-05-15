@@ -12,7 +12,7 @@ export const Genre = {
   },
   genreWiseMovieList: async (genreId, page = 1, sortBy = '') => {
     const res = await http.get(
-      `${movieListUrl}&with_genres=${genreId}&page=${page}&sort_by=${sortBy}`,
+      `${movieListUrl}&with_genres=${genreId}&page=${page}&sort_by=${sortBy}&vote_count.gte=10`,
     );
     return res?.data?.results;
   },

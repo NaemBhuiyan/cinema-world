@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import config from '@/config';
 import { Card, Col, Rate, Row } from 'antd';
 import notFoundImg from '../assets/image-not-found.png';
+import { useNavigate } from 'react-router-dom';
 const { Meta } = Card;
 
 function MovieCard({ movie, isLoading }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => navigate(`/movies/${movie.id}`);
+
   return (
     <Card
       loading={isLoading}
+      onClick={handleClick}
       hoverable
       cover={
         movie?.poster_path ? (

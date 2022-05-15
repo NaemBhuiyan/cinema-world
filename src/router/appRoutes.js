@@ -7,10 +7,3 @@ export const PUBLIC_ROUTE = {
   FORGET_PASSWORD: '/forgotpassword',
   RESET_PASSWORD: '/resetpassword',
 };
-
-export const PRIVATE_ROUTE = {
-  DASHBOARD_HOME: '/',
-  DASHBOARD: '/dashboard',
-  HOME: '',
-  DEMO_PAGE: 'demo',
-};

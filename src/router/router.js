@@ -11,6 +11,9 @@ import { PUBLIC_ROUTE } from './appRoutes';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const GenrePage = lazy(() => import('@/pages/GenrePage/Genre'));
+const MovieDetailsPage = lazy(() =>
+  import('@/pages/MovieDetailsPage/MovieDetails'),
+);
 const NotFound = lazy(() => import('@/pages/NotFoundPage'));
 
 // function PrivateRoute() {
@@ -37,6 +40,10 @@ function AppRoutes() {
     {
       path: PUBLIC_ROUTE.GENRE,
       component: GenrePage,
+    },
+    {
+      path: PUBLIC_ROUTE.MOVIE_DETAILS,
+      component: MovieDetailsPage,
     },
   ];
 

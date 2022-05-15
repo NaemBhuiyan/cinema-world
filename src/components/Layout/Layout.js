@@ -7,9 +7,6 @@ const { Content, Footer } = Layout;
 const styles = {
   layout: { flexDirection: 'row', overflowX: 'hidden' },
   content: {
-    // flexShrink: '0',
-    // position: 'relative',
-    // height: '100vh',
     marginTop: '100px',
   },
 };
