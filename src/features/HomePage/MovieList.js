@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import MovieCard from '@/components/MovieCard';
 import { Col, Row } from 'antd';
 
-function GenreWiseMovieList({ genreId, listLength, sortBy }) {
+function MovieList({ genreId, listLength, sortBy }) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -52,14 +52,14 @@ function GenreWiseMovieList({ genreId, listLength, sortBy }) {
   }
 }
 
-GenreWiseMovieList.propTypes = {
+MovieList.propTypes = {
   genreId: PropTypes.string,
   listLength: PropTypes.number,
   sortBy: PropTypes.string,
 };
 
-GenreWiseMovieList.defaultProps = {
+MovieList.defaultProps = {
   sortBy: '',
 };
 
-export default GenreWiseMovieList;
+export default MovieList;
