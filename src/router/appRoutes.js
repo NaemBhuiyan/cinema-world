@@ -3,4 +3,5 @@ export const PUBLIC_ROUTE = {
   MOVIE_DETAILS: '/movies/:id',
   GENRE: '/genre/:id',
   WATCH_LISt: '/watch-list',
+  RECENTLY_VISITED: '/recently-visited',
 };

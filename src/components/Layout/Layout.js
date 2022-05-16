@@ -5,7 +5,6 @@ import Topbar from '@/features/Topbar';
 import { DashboardContainer } from './styles';
 const { Content, Footer } = Layout;
 const styles = {
-  layout: { flexDirection: 'row', overflowX: 'hidden' },
   content: {
     marginTop: '100px',
   },

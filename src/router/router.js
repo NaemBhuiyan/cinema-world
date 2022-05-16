@@ -12,6 +12,7 @@ import { PUBLIC_ROUTE } from './appRoutes';
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const GenrePage = lazy(() => import('@/pages/GenrePage/Genre'));
 const WatchListPage = lazy(() => import('@/pages/WatchList'));
+const RecentlyVisitedPage = lazy(() => import('@/pages/RecentlyVisited'));
 const MovieDetailsPage = lazy(() =>
   import('@/pages/MovieDetailsPage/MovieDetails'),
 );
@@ -49,6 +50,10 @@ function AppRoutes() {
     {
       path: PUBLIC_ROUTE.WATCH_LISt,
       component: WatchListPage,
+    },
+    {
+      path: PUBLIC_ROUTE.RECENTLY_VISITED,
+      component: RecentlyVisitedPage,
     },
   ];
 

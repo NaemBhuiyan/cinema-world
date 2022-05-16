@@ -31,7 +31,7 @@ function MovieList({ genreId, listLength, sortBy }) {
   }, [inView, sortBy]);
 
   if (loading) {
-    return <p ref={ref}>Loading</p>;
+    return <p ref={ref}>Loading...</p>;
   }
   if (error) {
     return <p ref={ref}>Data not found, something went wrong</p>;

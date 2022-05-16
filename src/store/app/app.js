@@ -4,10 +4,15 @@ import { persist } from 'zustand/middleware';
 export const AppStore = create(
   persist(
     set => ({
+      recentlyVisited: [],
       watchList: [],
       setWatchList: payload =>
         set(state => ({
           watchList: [...state.watchList, payload].reverse(),
+        })),
+      saveToVisited: payload =>
+        set(state => ({
+          recentlyVisited: [...state.recentlyVisited, payload].reverse(),
         })),
       removeFromWatchList: payload => {
         return set(state => {

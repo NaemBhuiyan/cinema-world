@@ -3,8 +3,8 @@ import MovieCard from '@/components/MovieCard';
 import { AppStore } from '@/store';
 import { Col, Divider, List, Row, Typography } from 'antd';
 
-function WatchList() {
-  const watchList = AppStore(state => state.watchList);
+function RecentlyVisited() {
+  const recentlyVisited = AppStore(state => state.recentlyVisited);
   return (
     <Row
       justify="center"
@@ -26,7 +26,7 @@ function WatchList() {
             xl: 5,
             xxl: 5,
           }}
-          dataSource={watchList}
+          dataSource={recentlyVisited}
           renderItem={item => (
             <List.Item>
               <MovieCard movieInfo={item} />
@@ -38,4 +38,4 @@ function WatchList() {
   );
 }
 
-export default WatchList;
+export default RecentlyVisited;

@@ -38,13 +38,7 @@ export default function Topbar() {
             >
               <Col>
                 <Badge count={watchList?.length} offset={[7, 5]} showZero>
-                  {/* <a href="#">Watch List</a> */}
-                  <Button
-                    primary
-                    type="link"
-                    href="/watch-list"
-                    className="px-0"
-                  >
+                  <Button type="link" href="/watch-list" className="px-0">
                     Watch List
                   </Button>
                 </Badge>

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { message } from 'antd';
-import { AuthStore } from '@/store';
 
 const http = axios.create({
   headers: {
@@ -10,11 +9,6 @@ const http = axios.create({
 });
 
 http.interceptors.request.use(config => {
-  const auth_token = AuthStore.getState().token;
-  if (auth_token) {
-    const token = `token ${auth_token}`;
-    config.headers.Authorization = token;
-  }
   return config;
 });
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Tabs, Col, Divider, Row, Typography, List } from 'antd';
 import { useQuery } from 'react-query';
@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import MovieCard from '@/components/MovieCard';
 import { Movie } from '@/features/HomePage/api';
 import MovieCastList from '@/features/MovieDetails/MovieCastList';
+import { AppStore } from '@/store';
 
 const { TabPane } = Tabs;
 
@@ -18,12 +19,27 @@ const style = {
 
 function MovieDetails() {
   const { id } = useParams();
+  const saveToVisited = AppStore(state => state.saveToVisited);
+  const recentlyVisited = AppStore(state => state.recentlyVisited);
 
-  const { data, isLoading, isError } = useQuery(['movie-details', id], () =>
-    Movie.getDetails(id),
+  const { data, isLoading, isError, isSuccess } = useQuery(
+    ['movie-details', id],
+    () => Movie.getDetails(id),
   );
 
-  if (data?.title) {
+  useEffect(() => {
+    const isVisited = recentlyVisited.some(item => item.id === data?.id);
+    if (isSuccess && !isVisited) {
+      saveToVisited({
+        id: data?.id,
+        title: data?.title,
+        vote_average: data?.vote_average,
+        poster_path: data?.poster_path,
+      });
+    }
+  }, [isSuccess]);
+
+  if (isSuccess) {
     return (
       <>
         <Row justify="center" gutter={24}>
@@ -60,7 +76,7 @@ function MovieDetails() {
                 <MovieCastList data={data?.credits?.crew} />
               </TabPane>
               <TabPane tab="Trailer" key="3" style={style}>
-                {data.videos?.results[0].key ? (
+                {data.videos?.results[0]?.key ? (
                   <iframe
                     width="100%"
                     height="400"

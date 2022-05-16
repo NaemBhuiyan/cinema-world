@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const DashboardContainer = styled.div`
   -webkit-overflow-scrolling: touch;
+
   .trigger {
     font-size: 18px;
     line-height: 64px;
