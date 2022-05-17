@@ -28,7 +28,7 @@ function MovieList({ genreId, listLength, sortBy }) {
         setError(true);
       }
     }
-  }, [inView, sortBy]);
+  }, [inView, sortBy, genreId]);
 
   if (loading) {
     return <p ref={ref}>Loading...</p>;
@@ -63,7 +63,7 @@ function MovieList({ genreId, listLength, sortBy }) {
 }
 
 MovieList.propTypes = {
-  genreId: PropTypes.string,
+  genreId: PropTypes.number,
   listLength: PropTypes.number,
   sortBy: PropTypes.string,
 };

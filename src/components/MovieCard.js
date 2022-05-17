@@ -14,7 +14,7 @@ function MovieCard({ movieInfo, isLoading }) {
   const watchList = AppStore(state => state.watchList);
   const removeFromWatchList = AppStore(state => state.removeFromWatchList);
 
-  const isAddedToWatchList = watchList.some(item => item.id === movieInfo.id);
+  const isAddedToWatchList = watchList?.some(item => item.id === movieInfo.id);
 
   const handleClick = () => navigate(`/movies/${movieInfo.id}`);
   const handleAddWatchList = e => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DashboardContainer = styled.div`
+export const LayoutWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
 
   .trigger {

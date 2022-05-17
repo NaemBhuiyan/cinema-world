@@ -26,8 +26,6 @@ function Genre() {
 
   const handleSortChange = e => setSortListBy(e);
 
-  console.log(sortListBy);
-
   return (
     <Row justify="center">
       <Col span={23}>
@@ -35,7 +33,7 @@ function Genre() {
           gutter={40}
           justify="space-between"
           align="middle"
-          className="mt-5"
+          className="my-5"
         >
           <Col span={'auto'}>
             <Typography.Title className="mb-0">

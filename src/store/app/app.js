@@ -6,6 +6,7 @@ export const AppStore = create(
     set => ({
       recentlyVisited: [],
       watchList: [],
+
       setWatchList: payload =>
         set(state => ({
           watchList: [...state.watchList, payload].reverse(),

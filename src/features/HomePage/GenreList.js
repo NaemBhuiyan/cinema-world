@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Genre } from '@/features/genre/api';
 // import { useReactQuery } from '@/lib/hooks';
 import { Button, Col, Divider, Row, Typography } from 'antd';
@@ -10,7 +10,7 @@ function GenreList() {
   const genreList = useQuery('genreList', () => Genre.getList());
   const navigate = useNavigate();
 
-  const handleClickViewMore = genre =>
+  const goToCatagoriesMovieList = genre =>
     navigate(`/genre/${genre.id}?name=${genre.name}`);
 
   return (
@@ -19,28 +19,23 @@ function GenreList() {
         {genreList?.data?.length &&
           genreList.data.map(genre => {
             return (
-              <>
+              <Fragment key={genre.id}>
                 <Divider
                   orientationMargin={0}
-                  key={genre.id}
                   orientation="left"
                   className="mt-5"
                 >
                   <Typography.Title level={3}>{genre.name}</Typography.Title>
                 </Divider>
-                <MovieList
-                  key={genre.id + 1}
-                  genreId={genre.id}
-                  listLength={5}
-                />
+                <MovieList genreId={genre.id} listLength={5} />
                 <Button
                   size="large"
                   type="primary"
-                  onClick={() => handleClickViewMore(genre)}
+                  onClick={() => goToCatagoriesMovieList(genre)}
                 >
                   View {genre.name} List
                 </Button>
-              </>
+              </Fragment>
             );
           })}
       </Col>
