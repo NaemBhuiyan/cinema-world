@@ -37,7 +37,9 @@ function MovieCard({ movieInfo, isLoading }) {
         <img
           alt="example"
           src={
-            `${config.IMAGE_PATH}w300${movieInfo?.poster_path}` ?? notFoundImg
+            movieInfo.poster_path
+              ? `${config.IMAGE_PATH}w300${movieInfo?.poster_path}`
+              : notFoundImg
           }
         />
       }

@@ -43,7 +43,15 @@ function MovieDetails() {
     return (
       <>
         <Row justify="center" gutter={24}>
-          <Col xs={23} sm={23} md={23} lg={18} xl={8} xxl={8}>
+          <Col
+            xs={23}
+            sm={23}
+            md={23}
+            lg={18}
+            xl={8}
+            xxl={8}
+            className="mb-5 mb-lg-0"
+          >
             <MovieCard movieInfo={data} />
           </Col>
           <Col xl={13} xxl={13} xs={23} sm={23} md={23}>

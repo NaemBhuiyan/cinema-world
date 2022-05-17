@@ -6,12 +6,7 @@ import { Col, Divider, List, Row, Typography } from 'antd';
 function RecentlyVisited() {
   const recentlyVisited = AppStore(state => state.recentlyVisited);
   return (
-    <Row
-      justify="center"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <Row justify="center">
       <Col span={22}>
         <Divider orientationMargin={0} orientation="left" className="mt-5">
           <Typography.Title level={3}>Watch listed movies</Typography.Title>
