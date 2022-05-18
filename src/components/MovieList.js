@@ -63,7 +63,7 @@ function MovieList({ genreId, listLength, sortBy }) {
 }
 
 MovieList.propTypes = {
-  genreId: PropTypes.number,
+  genreId: PropTypes.any,
   listLength: PropTypes.number,
   sortBy: PropTypes.string,
 };
