@@ -1,5 +1,5 @@
-export const stripTrailingSlash = str => {
-  const splitText = str.split('/');
+export const stripTrailingSlash = (str) => {
+  const splitText = str.split("/");
   if (splitText.length === 2) {
     return splitText[0];
   }
