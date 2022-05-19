@@ -22,11 +22,9 @@ function MovieCard({ movieInfo, isLoading }) {
 
   const handleAddWatchList = (e) => {
     e.stopPropagation();
-
     if (!isAddedToWatchList) {
       setWatchList(movieInfo);
     } else {
-      console.log(isAddedToWatchList);
       removeFromWatchList(movieInfo);
     }
   };

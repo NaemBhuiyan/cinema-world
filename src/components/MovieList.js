@@ -37,7 +37,7 @@ function MovieList({ genreId, listLength, sortBy }) {
     return <p ref={ref}>Loading...</p>;
   }
   if (error) {
-    return <p ref={ref}>Data not found, something went wrong</p>;
+    return <p>Data not found, something went wrong</p>;
   }
 
   if (data?.length) {

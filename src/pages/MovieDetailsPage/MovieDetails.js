@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
 import { Tabs, Col, Divider, Row, Typography, List } from "antd";
-import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 
 import MovieCard from "../../components/MovieCard";
-import { Movie } from "../../features/HomePage/api";
 import MovieCastList from "../../features/MovieDetails/MovieCastList";
+import { useFatchDetails } from "../../features/MovieDetails/useFatchDetails";
 import { AppStore } from "../../store";
 
 const { TabPane } = Tabs;
@@ -22,10 +21,7 @@ function MovieDetails() {
   const saveToVisited = AppStore((state) => state.saveToVisited);
   const recentlyVisited = AppStore((state) => state.recentlyVisited);
 
-  const { data, isLoading, isError, isSuccess, refetch } = useQuery(
-    "movie-details",
-    () => Movie.getDetails(id)
-  );
+  const { data, isLoading, isError, isSuccess, refetch } = useFatchDetails(id);
 
   useEffect(() => {
     if (id) {
@@ -59,6 +55,7 @@ function MovieDetails() {
         style={{
           height: "100vh",
         }}
+        data-testid="loader"
       >
         <Col>Loading...</Col>
       </Row>
@@ -130,7 +127,10 @@ function MovieDetails() {
                     src={`https://www.youtube.com/embed/${data.videos?.results[0].key}`}
                   ></iframe>
                 ) : (
-                  "No trailer founded"
+                  <Typography.Text type="danger">
+                    {" "}
+                    No trailer founded
+                  </Typography.Text>
                 )}
               </TabPane>
             </Tabs>

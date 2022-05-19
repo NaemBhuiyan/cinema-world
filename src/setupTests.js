@@ -3,6 +3,27 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
+import { createMemoryHistory } from "history";
+import { render } from "@testing-library/react";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
+
+global.renderWithRouter = (renderComponent, route) => {
+  const history = createMemoryHistory();
+
+  if (route) {
+    history.push(route);
+  }
+
+  return {
+    ...render(
+      <Router navigator={history}>
+        <Routes>{renderComponent()}</Routes>
+      </Router>
+    ),
+    history,
+  };
+};
+
 global.matchMedia =
   global.matchMedia ||
   function () {
