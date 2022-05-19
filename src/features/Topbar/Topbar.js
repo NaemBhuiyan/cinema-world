@@ -1,25 +1,25 @@
-import React, { memo } from 'react';
-import { Layout, Row, Col, Badge, Typography, Button, Menu } from 'antd';
+import React, { memo } from "react";
+import { Layout, Row, Col, Badge, Typography, Button, Menu } from "antd";
 
-import TopbarWrapper from './styles';
-import { AppStore } from '@/store';
+import TopbarWrapper from "./styles";
+import { AppStore } from "../../store";
 
-import { useNavigate } from 'react-router-dom';
-import { topMenuItems } from './menuItems';
+import { useNavigate } from "react-router-dom";
+import { topMenuItems } from "./menuItems";
 
 const { Header } = Layout;
 
 function Topbar() {
-  const watchList = AppStore(state => state.watchList);
+  const watchList = AppStore((state) => state.watchList);
   const navigate = useNavigate();
 
-  const goToCatagoriesMovieList = e => navigate(e.key);
+  const goToCatagoriesMovieList = (e) => navigate(e.key);
 
   return (
     <TopbarWrapper>
       <Header className="header shadow-long">
         <Row
-          style={{ height: '100%' }}
+          style={{ height: "100%" }}
           type="flex"
           justify="space-between"
           align="middle"

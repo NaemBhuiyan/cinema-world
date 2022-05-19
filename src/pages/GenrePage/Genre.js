@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import MovieList from '@/components/MovieList';
-import { Col, Row, Typography, Segmented } from 'antd';
-import { useParams } from 'react-router-dom';
-import useURLQuery from '@/lib/hooks/useURLQuery';
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import MovieList from "../../components/MovieList";
+import { Col, Row, Typography, Segmented } from "antd";
+import { useParams } from "react-router-dom";
+import useURLQuery from "../../lib/hooks/useURLQuery";
+import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons";
 
 const sortOptions = [
   {
-    label: 'Top rated',
-    value: 'vote_average.desc',
+    label: "Top rated",
+    value: "vote_average.desc",
     icon: <BarsOutlined />,
   },
   {
-    label: 'Popular',
-    value: 'popularity.desc',
+    label: "Popular",
+    value: "popularity.desc",
     icon: <AppstoreOutlined />,
   },
 ];
@@ -24,7 +24,7 @@ function Genre() {
 
   const [sortListBy, setSortListBy] = useState(sortOptions[1].value);
 
-  const handleSortChange = e => setSortListBy(e);
+  const handleSortChange = (e) => setSortListBy(e);
 
   return (
     <Row justify="center">
@@ -35,13 +35,13 @@ function Genre() {
           align="middle"
           className="my-5"
         >
-          <Col span={'auto'}>
+          <Col span={"auto"}>
             <Typography.Title className="mb-0">
-              {' '}
-              {urlQuery.get('name')}
+              {" "}
+              {urlQuery.get("name")}
             </Typography.Title>
           </Col>
-          <Col span={'auto'}>
+          <Col span={"auto"}>
             <Segmented
               size="large"
               onChange={handleSortChange}

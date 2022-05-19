@@ -1,24 +1,25 @@
-import React, { lazy } from 'react';
-import { Layout } from 'antd';
-import Topbar from '@/features/Topbar';
-import { LayoutWrapper } from '@/components/Layout/styles';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import React, { lazy } from "react";
+import { Layout } from "antd";
+import Topbar from "../../features/Topbar";
+import { LayoutWrapper } from "../../components/Layout/styles";
+import { Navigate, Route, Routes } from "react-router-dom";
+// import { PUBLIC_ROUTE } from "@/router/appRoutes";
+import { PUBLIC_ROUTE } from "../../router/appRoutes";
 const { Content, Footer } = Layout;
-const NotFound = lazy(() => import('@/pages/NotFoundPage'));
-import { PUBLIC_ROUTE } from '@/router/appRoutes';
+const NotFound = lazy(() => import("../../pages/NotFoundPage"));
 
 const styles = {
   content: {
-    marginTop: '100px',
+    marginTop: "100px",
   },
 };
 
-const HomePage = lazy(() => import('@/pages/HomePage'));
-const GenrePage = lazy(() => import('@/pages/GenrePage/Genre'));
-const WatchListPage = lazy(() => import('@/pages/WatchList'));
-const RecentlyVisitedPage = lazy(() => import('@/pages/RecentlyVisited'));
+const HomePage = lazy(() => import("../../pages/HomePage"));
+const GenrePage = lazy(() => import("../../pages/GenrePage/Genre"));
+const WatchListPage = lazy(() => import("../../pages/WatchList"));
+const RecentlyVisitedPage = lazy(() => import("../../pages/RecentlyVisited"));
 const MovieDetailsPage = lazy(() =>
-  import('@/pages/MovieDetailsPage/MovieDetails'),
+  import("../../pages/MovieDetailsPage/MovieDetails")
 );
 
 const publicRoutes = [
@@ -50,7 +51,7 @@ function PageLayout() {
         <Topbar />
         <Content style={styles.content}>
           <Routes>
-            {publicRoutes.map(route => (
+            {publicRoutes.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}

@@ -1,10 +1,10 @@
-import React from 'react';
-import MovieCard from '@/components/MovieCard';
-import { AppStore } from '@/store';
-import { Col, Divider, List, Row, Typography } from 'antd';
+import React from "react";
+import MovieCard from "../../components/MovieCard";
+import { AppStore } from "../../store";
+import { Col, Divider, List, Row, Typography } from "antd";
 
 function RecentlyVisited() {
-  const recentlyVisited = AppStore(state => state.recentlyVisited);
+  const recentlyVisited = AppStore((state) => state.recentlyVisited);
   return (
     <Row justify="center">
       <Col span={22}>
@@ -22,7 +22,7 @@ function RecentlyVisited() {
             xxl: 5,
           }}
           dataSource={recentlyVisited}
-          renderItem={item => (
+          renderItem={(item) => (
             <List.Item>
               <MovieCard movieInfo={item} />
             </List.Item>

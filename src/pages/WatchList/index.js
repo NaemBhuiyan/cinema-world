@@ -1,17 +1,12 @@
-import React from 'react';
-import MovieCard from '@/components/MovieCard';
-import { AppStore } from '@/store';
-import { Col, Divider, List, Row, Typography } from 'antd';
+import React from "react";
+import MovieCard from "../../components/MovieCard";
+import { AppStore } from "../../store";
+import { Col, Divider, List, Row, Typography } from "antd";
 
 function WatchList() {
-  const watchList = AppStore(state => state.watchList);
+  const watchList = AppStore((state) => state.watchList);
   return (
-    <Row
-      justify="center"
-      style={{
-        height: '100vh',
-      }}
-    >
+    <Row justify="center">
       <Col span={22}>
         <Divider orientationMargin={0} orientation="left" className="mt-5">
           <Typography.Title level={3}>Watch listed movies</Typography.Title>
@@ -27,7 +22,7 @@ function WatchList() {
             xxl: 5,
           }}
           dataSource={watchList}
-          renderItem={item => (
+          renderItem={(item) => (
             <List.Item>
               <MovieCard movieInfo={item} />
             </List.Item>

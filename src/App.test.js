@@ -1,9 +1,8 @@
-import React from 'react';
-import { render, test, expect } from '@testing-library/react';
-import App from './App';
-// import regeneratorRuntime from 'regenerator-runtime';
-test('renders learn react link', async () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+
+test("renders learn react link", async () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Cinema World/i);
   expect(linkElement).toBeInTheDocument();
 });

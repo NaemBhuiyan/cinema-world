@@ -1,13 +1,13 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { loadProgressBar } from 'axios-progress-bar';
-import { GLobalStyles } from '@/styles';
-import { AppProvider } from '@/components';
-import { http } from '@/services';
-import Routes from '@/router';
-import 'nprogress/nprogress.css';
-import '@/styles/utilities/less/App.less';
+import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { loadProgressBar } from "axios-progress-bar";
+import { GLobalStyles } from "./styles";
+import { AppProvider } from "./components";
+import { http } from "./services";
+import Routes from "./router";
+import "nprogress/nprogress.css";
+import "./styles/utilities/less/App.less";
 
 const queryClient = new QueryClient({
   defaultOptions: {

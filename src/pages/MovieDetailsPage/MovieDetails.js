@@ -1,34 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { Tabs, Col, Divider, Row, Typography, List } from 'antd';
-import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { Tabs, Col, Divider, Row, Typography, List } from "antd";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 
-import MovieCard from '@/components/MovieCard';
-import { Movie } from '@/features/HomePage/api';
-import MovieCastList from '@/features/MovieDetails/MovieCastList';
-import { AppStore } from '@/store';
+import MovieCard from "../../components/MovieCard";
+import { Movie } from "../../features/HomePage/api";
+import MovieCastList from "../../features/MovieDetails/MovieCastList";
+import { AppStore } from "../../store";
 
 const { TabPane } = Tabs;
 
 const style = {
   height: 400,
-  overflow: 'auto',
-  borderRadius: '4px',
+  overflow: "auto",
+  borderRadius: "4px",
 };
 
 function MovieDetails() {
   const { id } = useParams();
-  const saveToVisited = AppStore(state => state.saveToVisited);
-  const recentlyVisited = AppStore(state => state.recentlyVisited);
+  const saveToVisited = AppStore((state) => state.saveToVisited);
+  const recentlyVisited = AppStore((state) => state.recentlyVisited);
 
   const { data, isLoading, isError, isSuccess } = useQuery(
-    ['movie-details', id],
-    () => Movie.getDetails(id),
+    ["movie-details", id],
+    () => Movie.getDetails(id)
   );
 
   useEffect(() => {
-    const isVisited = recentlyVisited.some(item => item.id === data?.id);
+    const isVisited = recentlyVisited.some((item) => item.id === data?.id);
     if (isSuccess && !isVisited) {
       saveToVisited({
         id: data?.id,
@@ -37,7 +37,15 @@ function MovieDetails() {
         poster_path: data?.poster_path,
       });
     }
-  }, [isSuccess]);
+  }, [
+    data?.id,
+    data?.poster_path,
+    data?.title,
+    data?.vote_average,
+    isSuccess,
+    recentlyVisited,
+    saveToVisited,
+  ]);
 
   if (isSuccess) {
     return (
@@ -56,7 +64,7 @@ function MovieDetails() {
           </Col>
           <Col xl={13} xxl={13} xs={23} sm={23} md={23}>
             <Typography.Title>{data?.title}</Typography.Title>
-            {data?.genres.map(genre => {
+            {data?.genres.map((genre) => {
               return (
                 <React.Fragment key={genre.id}>
                   <Typography.Text type="secondary">
@@ -86,12 +94,13 @@ function MovieDetails() {
               <TabPane tab="Trailer" key="3" style={style}>
                 {data.videos?.results[0]?.key ? (
                   <iframe
+                    title="youtube"
                     width="100%"
                     height="400"
                     src={`https://www.youtube.com/embed/${data.videos?.results[0].key}`}
                   ></iframe>
                 ) : (
-                  'No trailer founded'
+                  "No trailer founded"
                 )}
               </TabPane>
             </Tabs>
@@ -113,7 +122,7 @@ function MovieDetails() {
                 xxl: 5,
               }}
               dataSource={data?.recommendations?.results}
-              renderItem={item => (
+              renderItem={(item) => (
                 <List.Item>
                   <MovieCard movieInfo={item} />
                 </List.Item>
@@ -125,10 +134,10 @@ function MovieDetails() {
     );
   }
   if (isLoading) {
-    return 'Loading...';
+    return "Loading...";
   }
   if (isError) {
-    return 'Data not found';
+    return "Data not found";
   }
 }
 
