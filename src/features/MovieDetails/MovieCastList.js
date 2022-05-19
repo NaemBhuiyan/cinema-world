@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { List, Card } from 'antd';
-import notFoundImg from '../../assets/image-not-found.png';
-import config from '@/config';
+import React from "react";
+import PropTypes from "prop-types";
+import { List, Card } from "antd";
+import notFoundImg from "../../assets/image-not-found.png";
+import config from "../../config";
 
 function MovieCastList({ data }) {
   return (
@@ -17,7 +17,7 @@ function MovieCastList({ data }) {
         xxl: 6,
       }}
       dataSource={data}
-      renderItem={item => (
+      renderItem={(item) => (
         <List.Item>
           <Card
             cover={
@@ -27,11 +27,11 @@ function MovieCastList({ data }) {
                   src={`${config.IMAGE_PATH}w200${item?.profile_path}`}
                 />
               ) : (
-                <img src={notFoundImg}></img>
+                <img src={notFoundImg} alt=""></img>
               )
             }
             style={{
-              height: '100%',
+              height: "100%",
             }}
           >
             <Card.Meta

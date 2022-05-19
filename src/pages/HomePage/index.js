@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import GenreList from '@/features/HomePage/GenreList';
+import GenreList from "../../features/HomePage/GenreList";
 
 function HomePage() {
   return <GenreList />;

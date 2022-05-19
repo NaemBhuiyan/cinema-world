@@ -1,127 +1,70 @@
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#application-structure">Application Structure</a> •
-  <a href="#license">License</a>
-</p>
+# Getting Started with Create React App
 
-## Key Features
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- :fire: Built with Vite but extendable
-  - for vite configuration, use `vite.config.ts` file.
-- :chart_with_upwards_trend: Use Zustand store, less boilerplate. See <a href="/src/store">store</a>
+## Available Scripts
 
-- :blue_heart: Ant Design
+In the project directory, you can run:
 
-  - Localized Ant Design Component for better multilingual support
+### `npm start`
 
-- :cop: Eslint and Prettier configured with git hooks
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-  - Eslint and prettier configured together for auto save format and error checks
-  - No git commit allowed if errors and warnings are present
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- :raised_hands: Global HTTP error and auth handler. See <a href="/src/services">services</a>
+### `npm test`
 
-- :nail_care: Styled Components and more goodies on <a href="/src/styles">styles</a>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- :zap: Codesplitting
+### `npm run build`
 
-  - Native React Lazy loaded pages/components with Suspense
-  - Custom loader animation added
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- :capital_abcd: Multilingual. See <a href="/src/config">config</a>
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- :art: Less and Bootstrap utility classes. See <a href="/src/styles">styles</a>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- :rocket: Develepment scope based App config file for deployment. See `.env` file
+### `npm run eject`
 
-## How To Use
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. Recommended to use [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) for the project.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-From your command line:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-```bash
-# Clone this repository
-$ git clone repo-link
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-# Go into the repository
-$ cd react-app
+## Learn More
 
-# Install dependencies
-$ yarn install or npm i
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Run the app for development scope
-$ yarn start
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Run the app for production scope
-$ yarn start-prod
+### Code Splitting
 
-# Build the app
-$ yarn build
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-# Serve the app locally
-$ yarn build
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-```
+### Making a Progressive Web App
 
-## Application structure
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-> The directory layout of this boilerplate
+### Advanced Configuration
 
-    .
-    ├── .vscode                 # Vscode config, for autoformat on save.
-    ├── build                   # After running the build command the build files get put here
-    ├── node_modules            # NPM dependency folder
-    ├── public                  # Reacts public folder for the html and static assets
-    ├── src                     # Source directory for the React Application
-    ├── src                     # Source directory for the React Application
-    │   │
-    │   ├── api                   # API async functions folder.
-    │   ├── assets                # Static assets folder for the global scope. Example: images, icons, fonts etc.
-    │   ├── components            # Typical React component folder but only for global components.
-    │   ├── config                # App config (More details inside the folder)
-    │   ├── features              # Features pattern folder for Application features (More details inside the folder)
-    │   ├── lib                   # Global helper functions and custom hooks folder
-    │   ├── pages                 # Pages component folder
-    │   ├── router                # Application navigation/routing config (More details inside the folder)
-    │   ├── services              # Folder for services like custom axios instance, analytics etc.
-    │   ├── store                 # Application Redux store
-    │   ├── styles                # Custom SC components, CSS, less utilities
-    │   └── App.js                # Entry component for the React App.
-    │
-    ├── vite.config.ts         # Extend Esbuild config
-    ├── jsconfig.json           # Adjust file paths to use absolute file path for React
-    ├── package.json            # The NPM config file for all the packages installed and scripts and more
-    ├── .env                    # Store API Url, Secret API keys etc
-    ├── .eslintrc               # Configure Eslint
-    ├── .eslinignore            # ignore certain files for Eslint
-    ├── .gitignore              # ignore certain files for git (example: .env)
-    ├── .prettierrc             # Configure prettier (example: .env)
-    └── .prettierignore         # ignore certain files for Prettier
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Credits
+### Deployment
 
-This software uses the following open source packages:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- [React](https://reactjs.org/)
-- [Ant Design](https://ant.design/)
-- [Styled Components](https://styled-components.com/)
-- [Zustand](https://zustand-demo.pmnd.rs/)
-- [React Intl](https://formatjs.io/docs/react-intl/)
-- [React Router](https://reactrouter.com/)
-- [@ant-design/icons](https://github.com/ant-design/ant-design-icons)
-- [Axios](https://github.com/axios/axios)
-- [Vite](https://vitejs.dev/)
-- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
-- [polished](https://polished.js.org/docs/)
-- [eslint](https://eslint.org/)
-- [prettier](https://prettier.io/)
-- [husky](https://typicode.github.io/husky/#/)
-- And more..
+### `npm run build` fails to minify
 
-## License
-
-MIT
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

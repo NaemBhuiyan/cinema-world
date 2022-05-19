@@ -1,29 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import config from '@/config';
-import { Button, Card, Col, Rate, Row } from 'antd';
-import notFoundImg from '../assets/image-not-found.png';
-import { useNavigate } from 'react-router-dom';
-import { HeartOutlined, HeartTwoTone } from '@ant-design/icons';
-import { AppStore } from '@/store';
+import React from "react";
+import PropTypes from "prop-types";
+import config from "../config";
+import { Button, Card, Col, Rate, Row } from "antd";
+import notFoundImg from "../assets/image-not-found.png";
+import { useNavigate } from "react-router-dom";
+import { HeartOutlined, HeartTwoTone } from "@ant-design/icons";
+import { AppStore } from "../store";
 const { Meta } = Card;
 
 function MovieCard({ movieInfo, isLoading }) {
   const navigate = useNavigate();
-  const setWatchList = AppStore(state => state.setWatchList);
-  const watchList = AppStore(state => state.watchList);
-  const removeFromWatchList = AppStore(state => state.removeFromWatchList);
+  const setWatchList = AppStore((state) => state.setWatchList);
+  const watchList = AppStore((state) => state.watchList);
+  const removeFromWatchList = AppStore((state) => state.removeFromWatchList);
 
-  const isAddedToWatchList = watchList?.some(item => item.id === movieInfo.id);
+  const isAddedToWatchList = watchList?.some(
+    (item) => item.id === movieInfo.id
+  );
 
   const handleClick = () => navigate(`/movies/${movieInfo.id}`);
-  const handleAddWatchList = e => {
-    e.stopPropagation();
 
+  const handleAddWatchList = (e) => {
+    e.stopPropagation();
     if (!isAddedToWatchList) {
       setWatchList(movieInfo);
     } else {
-      console.log(isAddedToWatchList);
       removeFromWatchList(movieInfo);
     }
   };
@@ -44,7 +45,7 @@ function MovieCard({ movieInfo, isLoading }) {
         />
       }
       style={{
-        height: '100%',
+        height: "100%",
       }}
     >
       <Meta title={movieInfo?.title} />
@@ -63,7 +64,7 @@ function MovieCard({ movieInfo, isLoading }) {
           <Button
             shape="circle"
             size="large"
-            type={isAddedToWatchList ? 'primary' : 'default'}
+            type={isAddedToWatchList ? "primary" : "default"}
             onClick={handleAddWatchList}
             icon={isAddedToWatchList ? <HeartTwoTone /> : <HeartOutlined />}
           />

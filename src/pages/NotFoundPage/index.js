@@ -1,6 +1,6 @@
-import React from 'react';
-import { Result, Button, Row, Col } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Result, Button, Row, Col } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function NotFoundPage() {
   const navigate = useNavigate();
@@ -12,12 +12,12 @@ function NotFoundPage() {
   );
 
   return (
-    <Row style={{ height: '100%' }} type="flex" justify="center" align="middle">
+    <Row style={{ height: "100%" }} type="flex" justify="center" align="middle">
       <Col>
         <Result
           status="404"
-          title={'404'}
-          subTitle={'Sorry, the page you visited does not exist.'}
+          title={"404"}
+          subTitle={"Sorry, the page you visited does not exist."}
           extra={getExtraComponents()}
         />
       </Col>

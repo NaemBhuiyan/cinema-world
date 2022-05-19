@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import React, { Suspense } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import PageLayout from '@/components/Layout/PageLayout';
-import { Spin } from 'antd';
+import PageLayout from "../components/Layout/PageLayout";
+import { Spin } from "antd";
 
 function AppRoutes() {
   return (

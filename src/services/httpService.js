@@ -1,18 +1,18 @@
-import axios from 'axios';
-import { message } from 'antd';
+import axios from "axios";
+import { message } from "antd";
 
 const http = axios.create({
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
 });
 
-http.interceptors.request.use(config => {
+http.interceptors.request.use((config) => {
   return config;
 });
 
-http.interceptors.response.use(null, error => {
+http.interceptors.response.use(null, (error) => {
   if (error?.response?.status === 401 || error?.response?.status === 404) {
     message.error(error?.response?.data?.status_message);
   }
@@ -21,10 +21,8 @@ http.interceptors.response.use(null, error => {
     return error;
   }
 
-  console.log(error?.response);
-
-  message.error('Something went wrong!');
-  return error;
+  // message.error('Something went wrong!');
+  // return error;
 });
 
 export default http;

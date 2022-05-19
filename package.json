@@ -1,42 +1,48 @@
 {
-  "name": "cinema-world",
+  "name": "cine-world",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.4.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.2",
-    "antd": "^4.20.4",
+    "@ant-design/icons": "^4.7.0",
+    "@craco/craco": "^6.4.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.20.5",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",
     "babel-eslint": "^10.1.0",
+    "craco-less": "^2.0.0",
     "nprogress": "^0.2.0",
     "polished": "^4.1.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-intersection-observer": "^9.1.0",
     "react-query": "^3.34.16",
     "react-router": "^5.2.0",
     "react-router-dom": "6",
-    "react-scripts": "4.0.1",
-    "standard": "^17.0.0",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.2.1",
+    "web-vitals": "^2.1.4",
     "zustand": "^3.7.1"
   },
   "scripts": {
-    "start": "vite --mode development --port=3005",
-    "start-prod": "vite --mode production --port=3005",
-    "start-stage": "vite --mode staging --port=3005",
-    "build": "vite build",
-    "serve": "vite preview --port=3050",
-    "lint": "eslint . --max-warnings=0",
-    "test": "jest -env=jsdom",
-    "prepare": "husky install"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$"
+    ]
   },
   "browserslist": {
     "production": [
@@ -49,31 +55,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-syntax-jsx": "^7.16.7",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@honkhonk/vite-plugin-svgr": "^1.1.0",
-    "@vitejs/plugin-react": "^1.2.0",
-    "eslint": "7.19.0",
-    "eslint-config-airbnb": "18.2.1",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.29.3",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "fs.promises": "^0.1.2",
-    "husky": "^7.0.0",
-    "less": "^4.1.2",
-    "postcss": "^8.4.6",
-    "prettier": "^2.2.1",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "vite": "^2.8.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint"
-    }
   }
 }

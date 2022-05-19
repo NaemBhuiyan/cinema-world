@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
-import { Genre } from '@/features/genre/api';
+import React, { Fragment } from "react";
+import { Genre } from "../../features/genre/api";
 // import { useReactQuery } from '@/lib/hooks';
-import { Button, Col, Divider, Row, Typography } from 'antd';
-import MovieList from '../../components/MovieList';
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { Button, Col, Divider, Row, Typography } from "antd";
+import MovieList from "../../components/MovieList";
+import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 function GenreList() {
-  const genreList = useQuery('genreList', () => Genre.getList());
+  const genreList = useQuery("genreList", () => Genre.getList());
   const navigate = useNavigate();
 
-  const goToCatagoriesMovieList = genre =>
+  const goToCatagoriesMovieList = (genre) =>
     navigate(`/genre/${genre.id}?name=${genre.name}`);
 
   return (
     <Row justify="center">
       <Col span={23}>
         {genreList?.data?.length &&
-          genreList.data.map(genre => {
+          genreList.data.map((genre) => {
             return (
               <Fragment key={genre.id}>
                 <Divider
