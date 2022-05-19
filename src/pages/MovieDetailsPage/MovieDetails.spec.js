@@ -6,7 +6,7 @@ jest.mock("../../features/MovieDetails/useFatchDetails", () => ({
   useFatchDetails: jest.fn(),
 }));
 
-describe("useFatchDetails", () => {
+describe("movie details page", () => {
   beforeEach(() => {
     useFatchDetails.mockImplementation(() => ({}));
   });

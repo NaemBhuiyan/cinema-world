@@ -1,6 +1,5 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 import { loadProgressBar } from "axios-progress-bar";
 import { GLobalStyles } from "./styles";
 import { AppProvider } from "./components";
@@ -24,7 +23,6 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       <AppProvider>
         <GLobalStyles />
         <Routes />
