@@ -9,7 +9,7 @@ function RecentlyVisited() {
     <Row justify="center">
       <Col span={22}>
         <Divider orientationMargin={0} orientation="left" className="mt-5">
-          <Typography.Title level={3}>Watch listed movies</Typography.Title>
+          <Typography.Title level={3}>Recent Visited</Typography.Title>
         </Divider>
         <List
           grid={{

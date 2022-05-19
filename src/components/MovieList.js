@@ -15,7 +15,7 @@ function MovieList({ genreId, listLength, sortBy }) {
     triggerOnce: true,
   });
 
-  // if list name in widow view API will call
+  // if list name in window view, API will call
   useEffect(() => {
     const call = async () => {
       if (inView) {

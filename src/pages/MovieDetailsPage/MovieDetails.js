@@ -22,10 +22,16 @@ function MovieDetails() {
   const saveToVisited = AppStore((state) => state.saveToVisited);
   const recentlyVisited = AppStore((state) => state.recentlyVisited);
 
-  const { data, isLoading, isError, isSuccess } = useQuery(
-    ["movie-details", id],
+  const { data, isLoading, isError, isSuccess, refetch } = useQuery(
+    "movie-details",
     () => Movie.getDetails(id)
   );
+
+  useEffect(() => {
+    if (id) {
+      refetch();
+    }
+  }, [id, refetch]);
 
   useEffect(() => {
     const isVisited = recentlyVisited.some((item) => item.id === data?.id);
@@ -46,6 +52,30 @@ function MovieDetails() {
     recentlyVisited,
     saveToVisited,
   ]);
+
+  if (isLoading) {
+    return (
+      <Row
+        style={{
+          height: "100vh",
+        }}
+      >
+        <Col>Loading...</Col>
+      </Row>
+    );
+  }
+  if (isError) {
+    console.log(isError);
+    return (
+      <Row
+        style={{
+          height: "100vh",
+        }}
+      >
+        <Col>Data not found</Col>
+      </Row>
+    );
+  }
 
   if (isSuccess) {
     return (
@@ -132,12 +162,6 @@ function MovieDetails() {
         </Row>
       </>
     );
-  }
-  if (isLoading) {
-    return "Loading...";
-  }
-  if (isError) {
-    return "Data not found";
   }
 }
 

@@ -19,6 +19,7 @@ function MovieCard({ movieInfo, isLoading }) {
   );
 
   const handleClick = () => navigate(`/movies/${movieInfo.id}`);
+
   const handleAddWatchList = (e) => {
     e.stopPropagation();
 
